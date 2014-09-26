@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css" />
+        <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/jquery-migrate-1.2.1.min.js"></script>
+		<script src="js/jquery.mobile-1.4.3.min.js"></script>
+		<script src="themes/jquery.mobile-1.4.3.min.js"></script>
+		<script type="text/javascript" src="js/pontuacao.js"></script>
+        <script type="text/javascript" src="js/jquery.timer.js"></script>
+        <script type="text/javascript" src="js/demo.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+               
+	</head>
+    <body>
+	    <div data-role="page" id="estagiario" class="flip in"> 
+			<div data-role="header"  data-theme="b">
+				<h1>Estado</h1>
+				<a href='destroy_session.php' class="ui-btn ui-icon-power ui-btn-icon-left ui-btn-right ui-corner-all">Terminar</a>
+			</div> 
+			<div data-role="content">
+            	<a class="ui-btn ui-btn ui-corner-all" data-inline="true" href="index.html" rel="external">teste</a>
+                <div class="app">
+                    <a href="#" id="reset" class="ui-btn ui-btn ui-corner-all" onClick="reset()">Reset</a>
+                    <a href="#" id="addRows" class="ui-btn ui-btn ui-corner-all" onClick="addRows()">Add rows</a>
+                    <pre id="write"></pre>
+                    <pre id="log"></pre>
+                </div>
+            </div>
+			<div data-role="footer" data-position="fixed">
+				<h6>Selecione</h6>
+			</div>
+
+		</div>
+		<div data-role="page" id="competicao">
+			<div data-role="header" data-theme="b">
+				<h6>Modo Competição</h6>
+				<a href="#estagiario" class="ui-btn ui-icon-back ui-btn-icon-left ui-corner-all ui-btn-right" data-inline="true">Voltar</a>				
+			</div><!-- /header -->
+			<div data-role="content">
+			<select name="select-choice-a" id="select-choice-a" data-native-menu="false">
+    				<option>Escolha Evento</option>
+				    <option value="evento-um">Evento 1</option>  
+				    <option value="evento-dois">Evento 2</option>  
+				    <option value="evento-tres">Evento 3</option> 
+				    <option value="evento-quatro">Evento 4</option> 
+				</select>
+			<select name="select-choice-b" id="select-choice-b" data-native-menu="false">
+    			<option>Ronda Qualificação</option>
+			    <option value="round-one">Round 1</option>  
+			    <option value="round-two">Round 2</option>
+			    <option value="round-three">Round 3</option>
+			    <option value="round-four">Round 4</option>
+			    <option value="round-five">Round 5</option>
+			    <option value="oitavos">Oivatos-Final</option>  
+			    <option value="quartos">Quartos-Final</option> 
+			    <option value="meia">Meias-Finais</option> 
+			 	<option value="final">Final</option> 
+			</select>
+
+			<div class="ui-field-contain">
+			<table class=" ui-table-priority-2">
+				<tr><td><label class="ui-title"> Número Participantes</label></td>
+				<td><input id="qtSurfistas" type="number" pattern="[0-9]*" id="number-pattern" value=""  onchange="myFunction()"/></td></tr>
+				</table>
+			</div>
+				<select name="select-choice-c" id="select-choice-c" data-native-menu="false">
+    				<option>Escolha um surfista</option>
+				    <option value="Rui Meneses">Rui Meneses</option>  
+				    <option value="Renato Cabral">Renato Cabral</option>  
+				    <option value="Miguel Boavida">Miguel Boavida</option> 
+				    <option value="Nelio Folgoa">Nelio Folgoa</option> 
+				</select>
+				<h2 align="center">Selecione o tipo:</h2>
+				<a href="#manobras" class="ui-btn ui-icon-wave ui-btn-icon-left ui-corner-all">Manobras</a>
+				<a href="#qualidade" class="ui-btn ui-icon-chart ui-btn-icon-left ui-corner-all">Qualidade</a>
+				<a href="#pontuacoes"  class="ui-btn ui-icon-score ui-btn-icon-left ui-corner-all">Pontuações</a>
+			</div><!-- /content -->
+			<div data-role="footer" data-position="fixed">
+				<h6>INICIO PROVA</h6>					
+			</div>
+		</div><!-- /page -->
+		
+		<!-- Start of Mannobras page -->
+		<div data-role="page" id="manobras">
+			<div data-role="header">
+            <h6>Manobras</h6>
+			</div><!-- /header -->
+			<div align="center" role="main" class="ui-content">
+                <h2 align="center">Manobras</h2>
+                <form name="form">
+                	<span id="stopwatch">00:00:00</span>
+			        <div class="ui-grid-b">
+                    	<div class="ui-block-a"><input type="button" onClick="" value="Grab Rail"></div>
+                    	<div class="ui-block-b"><input type="button" value="Tube"></div>
+                    	<div class="ui-block-c"><input type="button" value="Re_Entry"></div>
+               	    </div><!-- /grid-b -->
+                    <div class="ui-grid-b">
+                    	<div class="ui-block-a"><input type="button" onClick="" value="Off The Lip"/></div>
+                    	<div class="ui-block-b"><input type="button" onClick="" value="Snap"/></div>
+                    	<div class="ui-block-c"><input type="button" value="Cut Back"/></div>
+                	</div><!-- /grid-b -->
+                   	<div class="ui-grid-b">
+                    	<div class="ui-block-a"><input type="button" onClick="" value="Bottom Turn"></div>
+                    	<div class="ui-block-b"><input type="button" onClick="" value="Aerial"></div>
+                    	<div class="ui-block-c"><input type="button" onClick="" value="Floater"></div>
+                    </div><!-- /grid-b -->
+                            
+                <input type='button' value='Iniciar/Pausa' onclick='manobras.Timer.toggle();' />
+                    
+                </form>
+            </div><!-- /content -->
+            <div data-role="footer" data-position="fixed">
+            	<div data-role="navbar">
+            		<ul>
+            		 	<li><a value='Stop/Reset' onclick='manobras.resetStopwatch();' data-role="button">Terminar</a></li>
+            	    </ul>
+            	</div>
+			</div>
+		</div><!-- /page -->
+		
+		
+		<!-- Start of Qualidade page -->
+		<div data-role="page" id="qualidade">
+			<div data-role="header">
+				<h6>Qualidade</h6>
+			</div><!-- /header -->
+			<div align="center" role="main" class="ui-content">
+				<h2 align="center">Qualidade</h2>        
+				<div class="ui-responsive" align="center">
+                   	<button class="ui-btn ui-corner-all" onClick="">FRACO</button>
+                   	<button class="ui-btn ui-corner-all" onClick="">OK</button>                   	
+                   	<button class="ui-btn ui-corner-all" onClick="">TOP</button>
+                </div>
+
+		    </div><!-- /content -->
+            <div data-role="footer" data-position="fixed">
+            	<div data-role="navbar">
+            		<ul>
+            		 	<li><a value='Stop/Reset' onclick='manobras.resetStopwatch();' data-role="button">Terminar</a></li>
+            	    </ul>
+            	</div>
+		   	</div>	
+		</div><!-- /page -->
+		
+		<!-- Start of Pontuacoes page -->
+		<div data-role="page" id="pontuacoes">
+			<div data-role="header">
+				<h6>PONTUAÇÕES</h6>
+			</div><!-- /header -->
+		    <div align="center" role="main" class="ui-content">
+		            <form>
+		            	<div class="ui-body ui-body-d ui-corner-all">
+		                	<p>Pontuacoes</p>
+		                	<div data-role="controlgroup" id="my-controlgroup"><!-- pontuações adicionadas aqui --></div>
+		             	</div>
+		            </form>
+		
+		            <div class="ui-field-contain">
+		                <p><label for="prepend">Insira Pontuacao</label></p>
+		                <button id="append">Nova</button>
+		            </div>
+			</div><!-- /content -->
+		</div><!-- /page -->	
+		<div data-role="page" id="soccer">
+  			<div data-role="header" data-position="fixed" data-theme="b">
+ 			   <h1>Soccer Player</h1>
+		  </div>
+		  <div data-role="content">
+		     <ul id="ManobrasList">
+		    </ul>
+		  </div>
+		</div><!--end of Soccer Player Page--->
+		
+	</body>
+</html>
