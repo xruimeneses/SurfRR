@@ -1,0 +1,18 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "org.smile.websqldatabase.wpdb": {
+            "PACKAGE_NAME": "org.smile.proto"
+        },
+        "com.msopentech.websql": {
+            "PACKAGE_NAME": "org.smile.proto"
+        }
+    },
+    "dependent_plugins": {}
+}
